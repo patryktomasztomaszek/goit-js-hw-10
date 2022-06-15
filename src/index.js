@@ -94,7 +94,7 @@ function displayData(data) {
         </p>
         <p class="country-info__population">
           <span class="country-info__label">Population:</span>
-        ${population}
+        ${population.toLocaleString()}
         </p>
         <p class="country-info__languages">
           <span class="country-info__label">Languages:</span>
@@ -112,6 +112,12 @@ function displayData(data) {
 // Function for handling input value,
 // and initializing fetch and markup functions
 function handleInputValue() {
+
+  // Ckeck if input has any data
+  if (input.value === "") {
+    return;
+  }
+
   fetchCounrtries(input.value.trim())
     .then(fetchedOutput => {
       displayData(fetchedOutput);
